@@ -1,0 +1,44 @@
+schema {
+  query: EmployeeQueries
+  mutation: EmployeeMutations
+}
+
+type Employee {
+    employeeId: ID
+    empName: String
+    email: String
+    address: String
+}
+
+input CreateEmployeeInput {
+    empName: String
+    email: String
+    address: String
+}
+
+input UpdateEmployeeInput{
+	 employeeId: Int
+    empName: String
+    email: String
+    address: String
+
+}
+
+
+
+type EmployeeQueries {
+    findAllEmployees: [Employee]
+    findEmployeeById(employeeId: Int): Employee
+    findByEmpName(empName: String): Employee
+    
+}
+
+
+
+type EmployeeMutations {
+    createEmployee(input: CreateEmployeeInput): Employee
+    updateEmployee(input: UpdateEmployeeInput): Employee
+    deleteEmployee(employeeId: Int): Boolean
+    
+}
+

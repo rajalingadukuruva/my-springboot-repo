@@ -1,0 +1,19 @@
+schema {
+  query: EmployeeQuery
+  mutation: EmployeeMutation
+}
+
+type Employee {
+  employeeId: ID!
+  empName: String!
+  email: String!
+  address: String
+}
+
+type EmployeeQuery {
+  findAll: [Employee!]!
+}
+
+type EmployeeMutation {
+  createEmployee(employeeId: ID!, empName: String!, email: String!, address: String): Employee!
+}

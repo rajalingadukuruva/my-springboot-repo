@@ -1,0 +1,25 @@
+type Product{
+    id: ID,
+    name:String
+    category:String
+    price:Float
+    stock:Int
+}
+
+input CreateProductInput{
+	name:String!
+    category:String!
+    price:Float!
+    stock:Int!
+
+}
+
+type Query{
+    getProducts:[Product]
+    getProductsByCategory(category:String):[Product]
+}
+
+type  Mutation{
+    updateStock(id:ID,stock:Int):Product
+    createProduct(input:CreateProductInput!):Product
+}
